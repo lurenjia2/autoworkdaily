@@ -39,6 +39,7 @@ public class WorkRecordList extends ExcelReadTemplate<WorkRecordEntity> {
 			entity.work_role =  sheet.getCell(8, i).getContents();
 			entity.work_cycle =  sheet.getCell(9, i).getContents();
 			entity.remark =  sheet.getCell(10, i).getContents();
+			entity.work_from=sheet.getCell(11, i).getContents();
 			recordlist.add(entity);
 		}
 	}

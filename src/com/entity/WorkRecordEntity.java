@@ -15,7 +15,7 @@ public class WorkRecordEntity  {
 	public String  work_role;
 	public String  work_cycle;
 	public String  remark;  
-
+   public String   work_from;
 	
 	public void  print()
 	{
@@ -30,6 +30,7 @@ public class WorkRecordEntity  {
 				          +",work_role:"+work_role
 				          +",work_cycle:"+work_cycle
 				          +",remark:"+remark
+				          +",work_from:"+work_from
 				          );
 	}
 }
