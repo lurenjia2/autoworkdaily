@@ -10,6 +10,7 @@ import java.util.List;
 
 import  com.entity.*;
 import com.excel.common.*;
+import com.log.Log;
 
 
 public class LoginUser extends ExcelReadTemplate<LoginUserEntity>  {
@@ -17,18 +18,25 @@ public class LoginUser extends ExcelReadTemplate<LoginUserEntity>  {
 	
 	public LoginUser()
 	{
-		super.setPath(BrowserCommonEntity.PATH_WORK_DAILY);
-		super.record=new LoginUserEntity();
+		record=new LoginUserEntity();
+		GetData();
 	}
 	
 	
-	public void GetData() throws IndexOutOfBoundsException, BiffException, IOException {
-	
-		Sheet sheet=getSheet(BrowserCommonEntity.SHEET_NAME_LOGIN_USER);
+	public void GetData() {
+	 
+		Sheet sheet= CWorkbook.Instance().getSheet(BrowserCommonEntity.SHEET_NAME_LOGIN_USER); 
 		for(int i =1;i<sheet.getRows();i++)
-		{
-			record.username=sheet.getCell(0, i).getContents();
-		    record.password =  sheet.getCell(1, i).getContents();
+		{ 
+			if(sheet.getCell(0, i).getContents()!=null)
+			{ 
+			record.username=sheet.getCell(0, i).getContents().trim();
+		    record.password =  sheet.getCell(1, i).getContents().trim();
+		    record.print();
+			} 
 	    }
+		 
 	}
+	 
+ 
 	}

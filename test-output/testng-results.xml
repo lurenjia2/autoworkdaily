@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="67623" started-at="2016-08-31T02:22:50Z" finished-at="2016-08-31T02:23:58Z">
+  <suite name="Default suite" duration-ms="61433" started-at="2016-08-31T10:16:57Z" finished-at="2016-08-31T10:17:58Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="67623" started-at="2016-08-31T02:22:50Z" finished-at="2016-08-31T02:23:58Z">
+    <test name="Default test" duration-ms="61433" started-at="2016-08-31T10:16:57Z" finished-at="2016-08-31T10:17:58Z">
       <class name="com.test.WriteWorkdailyTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.test.WriteWorkdailyTest@a51c603]" name="setUp" is-config="true" duration-ms="21420" started-at="2016-08-31T10:22:50Z" finished-at="2016-08-31T10:23:11Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.test.WriteWorkdailyTest@4e8fe358]" name="setUp" is-config="true" duration-ms="18536" started-at="2016-08-31T18:16:57Z" finished-at="2016-08-31T18:17:15Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="runTest()[pri:0, instance:com.test.WriteWorkdailyTest@a51c603]" name="runTest" duration-ms="46159" started-at="2016-08-31T10:23:11Z" finished-at="2016-08-31T10:23:58Z">
+        <test-method status="PASS" signature="runTest()[pri:0, instance:com.test.WriteWorkdailyTest@4e8fe358]" name="runTest" duration-ms="42852" started-at="2016-08-31T18:17:15Z" finished-at="2016-08-31T18:17:58Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runTest -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.test.WriteWorkdailyTest@a51c603]" name="tearDown" is-config="true" duration-ms="1" started-at="2016-08-31T10:23:58Z" finished-at="2016-08-31T10:23:58Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.test.WriteWorkdailyTest@4e8fe358]" name="tearDown" is-config="true" duration-ms="1" started-at="2016-08-31T18:17:58Z" finished-at="2016-08-31T18:17:58Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

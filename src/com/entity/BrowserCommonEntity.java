@@ -18,6 +18,7 @@ public class BrowserCommonEntity {
 	 public static final String SHEET_NAME_IT_WORK_LIST="itworklist";//广发证券日志管理平台
 	 public static final String SHEET_NAME_JIRA_WORK_LIST="jiraworklist";//jira
 	 public static final String SHEET_NAME_LOGIN_USER="loginuser";//登陆用户
+	 public static final String SHEET_NAME_WORK_DAY="workday";//登陆用户
 	 
 	 
 }

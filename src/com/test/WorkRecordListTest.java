@@ -26,10 +26,9 @@ public class WorkRecordListTest {
 	}
 	
 	@Test
-	public void runExcelTest() throws IndexOutOfBoundsException, BiffException, IOException
+	public void runExcelTest()   
 	{
-		 WorkRecordList record=new WorkRecordList();
-         record.GetData();
+		 WorkRecordList record=new WorkRecordList(); 
        for(int i=0;i<  record.recordlist.size();i++)
        {
     	   record.recordlist.get(i).print();

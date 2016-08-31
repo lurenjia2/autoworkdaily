@@ -7,7 +7,6 @@
         <methods>
           <include name="setUp"/>
           <include name="runTest"/>
-          <include name="tearDown"/>
         </methods>
       </class> <!-- com.test.WriteWorkdailyTest -->
     </classes>

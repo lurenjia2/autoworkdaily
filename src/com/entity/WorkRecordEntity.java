@@ -1,8 +1,10 @@
 package com.entity;
 
+import com.log.Log;
+
   
 
-public class WorkRecordEntity  {
+public class WorkRecordEntity  extends Entity {
 
 	public String  work_date;
 	public String  work_hours;
@@ -17,20 +19,21 @@ public class WorkRecordEntity  {
 	public String  remark;  
    public String   work_from;
 	
-	public void  print()
+	  
+	public String toString()
 	{
-		System.out.println("work_date:"+work_date
-				          +",work_hours:"+work_hours
-				          +",work_block:"+work_block
-				          +",work_sub_block:"+work_sub_block
-				          +",work_type:"+work_type
-				          +",work_sub_type:"+work_sub_type
-				          +",work_content:"+work_content
-				          +",work_result:"+work_result
-				          +",work_role:"+work_role
-				          +",work_cycle:"+work_cycle
-				          +",remark:"+remark
-				          +",work_from:"+work_from
-				          );
+		return "[workrecord] work_date:"+work_date
+		          +",work_hours:"+work_hours
+		          +",work_block:"+work_block
+		          +",work_sub_block:"+work_sub_block
+		          +",work_type:"+work_type
+		          +",work_sub_type:"+work_sub_type
+		          +",work_content:"+work_content
+		          +",work_result:"+work_result
+		          +",work_role:"+work_role
+		          +",work_cycle:"+work_cycle
+		          +",remark:"+remark
+		          +",work_from:"+work_from
+		          +"\n"  ;
 	}
 }

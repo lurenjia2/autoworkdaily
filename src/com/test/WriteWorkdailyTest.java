@@ -15,6 +15,7 @@ import org.openqa.selenium.JavascriptExecutor;
 
 import com.browser.*;
 import  com.entity.*;
+import com.excel.read.LoginUser;
 import com.excel.read.WorkRecordList;
 
 
@@ -22,28 +23,28 @@ public class WriteWorkdailyTest {
 	
 	BrowserCommon browser;
 	WorkRecordList record;
-	
+    LoginUser user;
 	
 	@BeforeTest
-	public void setUp() throws IndexOutOfBoundsException, BiffException, IOException
+	public void setUp() 
 	{
 		browser=new BrowserCommon(); 
-	    record=new WorkRecordList();
-        record.GetData();
+	    record=new WorkRecordList(); 
+        user=new LoginUser();   
 	}
 
 	@AfterTest
 	public void tearDown()
 	{
-	  // browser.driver.quit();
+	  // browser.quit();
 	}
 	
 	@Test
 	public void runTest() throws InterruptedException
 	{
 		 login();
-		 print(record.recordlist.size());
-		 for(int i=0;i<record.recordlist.size();i++)
+		 print(record.size());
+		 for(int i=0;i<record.size();i++)
 		 { 
 		 toNewEdit();
 		 fixTextSubmit(i); 
@@ -57,8 +58,8 @@ public class WriteWorkdailyTest {
 		WebElement eleName=browser.findElementByName(HtmlElementEntity.LoginEntity.TXT_N_USER_NAME);
 		WebElement elePass=browser.findElementByName(HtmlElementEntity.LoginEntity.TXT_N_PASSWORD);
 		WebElement eleSubmit=browser.findElementById(HtmlElementEntity.LoginEntity.BTN_I_SUBMIT);
-		eleName.sendKeys(browser.user.username);
-		elePass.sendKeys(browser.user.password);
+		eleName.sendKeys(user.record.username);
+		elePass.sendKeys(user.record.password);
 		eleSubmit.click();
 	}
 	

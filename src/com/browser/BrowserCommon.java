@@ -14,19 +14,20 @@ import org.openqa.selenium.internal.FindsByName;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.entity.*;
+import com.excel.read.LoginUser;
 
 public   class BrowserCommon {
 
 	 FirefoxProfile profile;
 	 public WebDriver driver; 
-	 public LoginUserEntity user;
+	 
 	public BrowserCommon()
 	{
 		System.setProperty(BrowserCommonEntity.Firefox.PRO_BIN_NAME, BrowserCommonEntity.Firefox.PRO_BIN_VALUE);
 	    FirefoxProfile profile=new FirefoxProfile();
 	    driver=new FirefoxDriver(profile);
 	    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-	    user=new LoginUserEntity();
+	  
 	    LoadPage();
 	}
 	
@@ -34,6 +35,14 @@ public   class BrowserCommon {
 	{
 		driver.navigate().to(BrowserCommonEntity.URL_LOAD_PAGE);
 	}
+	
+	
+	public void quit()
+	{
+		 driver.quit();
+	}
+	
+	 
 	
 	public WebElement findElementByName(String vName)
 	{
