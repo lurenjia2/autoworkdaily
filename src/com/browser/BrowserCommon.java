@@ -3,6 +3,7 @@ package com.browser;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxBinary;
@@ -18,27 +19,41 @@ public   class BrowserCommon {
 
 	 FirefoxProfile profile;
 	 public WebDriver driver; 
-	 public WorkUserProfile user;
+	 public LoginUserEntity user;
 	public BrowserCommon()
 	{
-		System.setProperty("webdriver.firefox.bin", "G:\\workspace\\firefox-sdk\\bin\\firefox.exe");
+		System.setProperty(BrowserCommonEntity.Firefox.PRO_BIN_NAME, BrowserCommonEntity.Firefox.PRO_BIN_VALUE);
 	    FirefoxProfile profile=new FirefoxProfile();
 	    driver=new FirefoxDriver(profile);
 	    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-	    SetWorkUserProfile();
+	    user=new LoginUserEntity();
+	    LoadPage();
+	}
+	
+	public void LoadPage()
+	{
+		driver.navigate().to(BrowserCommonEntity.URL_LOAD_PAGE);
+	}
+	
+	public WebElement findElementByName(String vName)
+	{
+		return driver.findElement(By.name(vName));
+	}
+	
+	public WebElement findElementById(String vId)
+	{
+		return driver.findElement(By.id(vId));
+	}
+	
+	public WebElement findElementByCss(String vCss)
+	{
+		return driver.findElement(By.cssSelector(vCss));
 	}
 	
 	
-	
-	public void  SetWorkUserProfile()
+	public void displaySetNoneToBlok(String eleName)
 	{
-		user=new WorkUserProfile();
-		user.username="cozhongzhiheng";
-		user.password="pass1234";
-		
-		user.elementPassword="password";
-		user.elementUsername="loginname";
-		user.btnSubmit="to-recover";
-		
+		String js="document.getElementById('"+eleName+"').style.display='block';";
+		((JavascriptExecutor)driver).executeScript(js);  
 	}
 }

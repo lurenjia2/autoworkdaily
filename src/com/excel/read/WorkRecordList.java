@@ -12,19 +12,19 @@ import  com.entity.*;
 import com.excel.common.*;
 
 
-public class WorkRecordList extends ExcelReadTemplate<WorkRecordEntity> {
+public class WorkRecordList extends ExcelReadListTemplate<WorkRecordEntity> {
 
 	 
-	public List<WorkRecordEntity>  recordlist;
+	//public List<WorkRecordEntity>  recordlist;
 	
-	public WorkRecordList(String v_path)
+	public WorkRecordList()
 	{
-		 super.setPath(v_path);
-		 recordlist=new ArrayList<WorkRecordEntity>();
+		 super.setPath(BrowserCommonEntity.PATH_WORK_DAILY);
+		 recordlist=new ArrayList<WorkRecordEntity>(); 
 	}
 	
 	public void  GetData() throws IndexOutOfBoundsException, BiffException, IOException{
-		Sheet sheet=getSheet();
+		Sheet sheet=getSheet(BrowserCommonEntity.SHEET_NAME_IT_WORK_LIST);
 		for(int i =1;i<sheet.getRows();i++)
 		{
 			WorkRecordEntity entity=new WorkRecordEntity();
@@ -42,6 +42,10 @@ public class WorkRecordList extends ExcelReadTemplate<WorkRecordEntity> {
 			entity.work_from=sheet.getCell(11, i).getContents();
 			recordlist.add(entity);
 		}
+	}
+
+	public WorkRecordEntity  L(int i) { 
+		 return recordlist.get(i);
 	}
 	
 }

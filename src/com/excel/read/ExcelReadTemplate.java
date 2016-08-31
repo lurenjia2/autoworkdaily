@@ -1,21 +1,18 @@
 package com.excel.read;
 
-import jxl.*;
-import jxl.read.biff.BiffException; 
-
-import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-import  com.entity.*;
-import com.excel.common.*;
+import jxl.Sheet;
+import jxl.read.biff.BiffException;
 
+import com.excel.common.CWorkbook;
 
-public class ExcelReadTemplate<T> {
-
+public abstract class ExcelReadTemplate<T> {
 	public CWorkbook book ;
-	public List<T>  recordlist;
-	
+	public  T record;
+	 
+	 
 	public ExcelReadTemplate()
 	{
 		 
@@ -26,11 +23,7 @@ public class ExcelReadTemplate<T> {
 		book=new CWorkbook(v_path);
 	}
 	
-	public boolean isEmpty()
-	{
-		if(recordlist==null || recordlist.size()==0) return true;
-		return false;
-	}
+	
 	
 	public Sheet getSheet(int i) throws IndexOutOfBoundsException, BiffException, IOException
 	{
@@ -38,10 +31,19 @@ public class ExcelReadTemplate<T> {
 		 return book.Get().getSheet(i);
 	}
 	
+	public Sheet getSheet(String sheetname) throws IndexOutOfBoundsException, BiffException, IOException
+	{
+		 if(book==null) return null;
+		 return book.Get().getSheet(sheetname);
+	}
+	
+	
 	public Sheet getSheet() throws IndexOutOfBoundsException, BiffException, IOException
 	{
 		 if(book==null) return null;
 		 return book.Get().getSheet(0);
 	}
+	
+	public abstract  void GetData() throws IndexOutOfBoundsException, BiffException, IOException;
 	
 }

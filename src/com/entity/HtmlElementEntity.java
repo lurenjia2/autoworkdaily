@@ -43,4 +43,11 @@ public  class HtmlElementEntity {
 	}
 	
 	
+	public class LoginEntity
+	{ 
+		public static final String TXT_N_USER_NAME="loginname";
+		public static final String TXT_N_PASSWORD="password";
+		public static final String BTN_I_SUBMIT="to-recover";
+	}
+	
 }
