@@ -1,13 +1,13 @@
-package com.entity;
+package com.entity.Html;
 
-public  class HtmlElementEntity {
+public  class ITHtml {
 
 	//class
 	public static String BTN_C_NEW_EDIT="button.btn.btn-success.btn-xs";
 	
 	
 	
-	public class NewDailyEntity
+	public class NewDaily
 	{
 		public static final String TXT_N_WORK_DATE="logdateStr";//name
 		public static final String TXT_I_WORK_DATE="logdateStr_0";//id
@@ -43,11 +43,12 @@ public  class HtmlElementEntity {
 	}
 	
 	
-	public class LoginEntity
+	public class Login
 	{ 
 		public static final String TXT_N_USER_NAME="loginname";
 		public static final String TXT_N_PASSWORD="password";
 		public static final String BTN_I_SUBMIT="to-recover";
+		public static final String JUS_IT_USER_TYPE="itworkload";
 	}
 	
 }

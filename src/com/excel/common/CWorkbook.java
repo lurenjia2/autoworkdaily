@@ -3,7 +3,7 @@ package com.excel.common;
 import java.io.File;
 import java.io.IOException;
 
-import com.entity.BrowserCommonEntity;
+import com.entity.Html.BrowserHtml;
 import com.log.Log;
 
 import jxl.*;  
@@ -31,10 +31,10 @@ static 	Workbook book ;
 	private   void  Get() 
 	{
 		 try{ 
-	    book =Workbook.getWorkbook(new File(BrowserCommonEntity.PATH_WORK_DAILY));  
+	    book =Workbook.getWorkbook(new File(BrowserHtml.PATH_WORK_DAILY));  
 		 }catch(Exception e)
 		 {
-			 Log.debug(e.toString());
+			 Log.info(e.toString());
 			  
 		 }
 	}
@@ -47,7 +47,7 @@ static 	Workbook book ;
 //		return book;
 //		 }catch(Exception e)
 //		 {
-//			 Log.debug(e.toString());
+//			 Log.info(e.toString());
 //			 return null;
 //		 }
 //	}
@@ -58,7 +58,7 @@ static 	Workbook book ;
 		try { 
 		 return  book.getSheet(i); 
 		}catch(Exception e) {
-			 Log.debug(e.toString()); 
+			 Log.info(e.toString()); 
 			 return null;
 		}  
 	}
@@ -68,7 +68,7 @@ static 	Workbook book ;
 		try { 
 			 return  book.getSheet(sheetname); 
 			}catch(Exception e) {
-				 Log.debug(e.toString()); 
+				 Log.info(e.toString()); 
 				 return null;
 			}  
 	}
@@ -78,7 +78,7 @@ static 	Workbook book ;
 		try { 
 			 return  book.getSheet(0); 
 			}catch(Exception e) {
-				 Log.debug(e.toString()); 
+				 Log.info(e.toString()); 
 				 return null;
 			}  
 	}

@@ -6,12 +6,12 @@ import java.util.List;
 import jxl.Sheet;
 import jxl.read.biff.BiffException;
 
-import com.entity.BrowserCommonEntity;
 import com.entity.LoginUserEntity;
+import com.entity.Html.BrowserHtml;
 import com.excel.common.CWorkbook;
 import com.log.*;
 
-public abstract class ExcelReadTemplate<T> {
+public   class ExcelReadTemplate<T> {
  
 	public  T record;
 	  
@@ -20,6 +20,6 @@ public abstract class ExcelReadTemplate<T> {
 	} 
 	  
 	 
-	public abstract  void GetData() throws IndexOutOfBoundsException, BiffException, IOException;
+	public    void GetData() {}
 	
 }

@@ -11,6 +11,6 @@ public  class Entity {
 	public void  print()
 	{
 		System.out.println(toString());
-		Log.debug(toString());
+		Log.info(toString());
 	}
 }

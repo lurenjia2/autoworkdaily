@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import  com.entity.*;
+import com.entity.Html.BrowserHtml;
 import com.excel.common.*;
 import com.log.Log;
 
@@ -21,7 +22,7 @@ public class WorkDayList extends ExcelReadListTemplate<WorkDayEntity> {
 	}
 	
 	public void  GetData(){
-		Sheet sheet= CWorkbook.Instance().getSheet(BrowserCommonEntity.SHEET_NAME_WORK_DAY);
+		Sheet sheet= CWorkbook.Instance().getSheet(BrowserHtml.SHEET_NAME_WORK_DAY);
 		for(int i =1;i<sheet.getRows();i++)
 		{
 			if(sheet.getCell(0, i).getContents()!=null)

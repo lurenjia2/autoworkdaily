@@ -1,6 +1,6 @@
-package com.entity;
+package com.entity.Html;
 
-public class BrowserCommonEntity {
+public class BrowserHtml {
 
 	public class Firefox
 	{
@@ -8,10 +8,14 @@ public class BrowserCommonEntity {
 		public static final String PRO_BIN_VALUE="G:\\workspace\\firefox-sdk\\bin\\firefox.exe"; 
 	}
 	
-	//url
+	//itworkload url
 	public static final String URL_LOAD_PAGE="http://it-workload.gf.com.cn";
     public static final String URL_IT_WORK_LOAD="http://it-workload.gf.com.cn";
 	
+	//jira url
+    public static final String URL_JIRA="http://jira.gf.com.cn/login.jsp";
+    public static final String URL_JIRA_TO_TASK="http://jira.gf.com.cn/browse/";
+    
 	
 	 //excel
 	 public static final String PATH_WORK_DAILY="G:\\workspace\\AutoWrokDaily\\workdaily.xls"; 
@@ -21,4 +25,7 @@ public class BrowserCommonEntity {
 	 public static final String SHEET_NAME_WORK_DAY="workday";//登陆用户
 	 
 	 
+	 //状态标识
+	 public static final String STATUS_USABLE_SIGN="usable";//可用
+	 public static final String STATUS_DISABLED_SIGN="disabled";//不可用
 }

@@ -6,14 +6,15 @@ public class LoginUserEntity extends Entity {
  
 	public String username;
 	public String password; 
-	 
+	public String usertype; 
 	
 	 
 	
 	public String toString()
 	{
 		return "[login user] username:"+username
-		          +",password:"+password
+		          +",  password:"+password
+		          +",  usertype:"+usertype
 		          +"\n" ;  
 		
 	}

@@ -18,7 +18,7 @@ public class ExcelRead {
 //		return book;
 //		}catch(Exception e)
 //		{
-//			Log.debug(e.toString());
+//			Log.info(e.toString());
 //			return null;
 //		}
 //	}

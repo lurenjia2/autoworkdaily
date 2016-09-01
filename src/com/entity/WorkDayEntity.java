@@ -10,8 +10,7 @@ public class WorkDayEntity  extends Entity {
 	
 	public String toString()
 	{
-		return "[workday] day:"+day 
-		          +"\n" ;  
+		return "[workday] day:"+day +"\n" ;  
 		
 	}
 	

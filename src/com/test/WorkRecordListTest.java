@@ -8,7 +8,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import com.entity.BrowserCommonEntity;
+import com.entity.Html.BrowserHtml;
 import  com.excel.read.*;
 
 public class WorkRecordListTest {
