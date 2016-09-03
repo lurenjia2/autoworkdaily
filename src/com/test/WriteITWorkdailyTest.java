@@ -18,35 +18,36 @@ import  com.entity.*;
 import com.entity.Html.BrowserHtml;
 import com.entity.Html.ITHtml;
 import com.excel.read.LoginUser;
+import com.excel.read.WorkRecord;
 import com.excel.read.WorkRecordList;
 
 
 public class WriteITWorkdailyTest {
 	
-	BrowserCommon browser;
-	WorkRecordList record;
+//	BrowserCommon browser;
+//	WorkRecordList record;
     LoginUser user;
 	
 	@BeforeTest
 	public void setUp() 
 	{
-		browser=new BrowserCommon(BrowserHtml.URL_IT_WORK_LOAD); 
-	    record=new WorkRecordList(); 
+		Browser.Instance().LoadPage(BrowserHtml.URL_IT_WORK_LOAD); 
+	  //  record=new WorkRecordList(); 
         user=new LoginUser(ITHtml.Login.JUS_IT_USER_TYPE);   
 	}
 
 	@AfterTest
 	public void tearDown()
 	{
-	  // browser.quit();
+	  // Browser.Instance().quit();
 	}
 	
 	@Test(priority=2)
 	public void itWorkLoadTest() throws InterruptedException
 	{
 		 login();
-		 print(record.size());
-		 for(int i=0;i<record.size();i++)
+		 print(WorkRecord.instance().size());
+		 for(int i=0;i<WorkRecord.instance().size();i++)
 		 { 
 		 goToNewEdit();
 		 newWorkLoadSubmit(i); 
@@ -57,9 +58,9 @@ public class WriteITWorkdailyTest {
 	
 	public void  login()
 	{
-		WebElement eleName=browser.findElementByName(ITHtml.Login.TXT_N_USER_NAME);
-		WebElement elePass=browser.findElementByName(ITHtml.Login.TXT_N_PASSWORD);
-		WebElement eleSubmit=browser.findElementById(ITHtml.Login.BTN_I_SUBMIT);
+		WebElement eleName=Browser.Instance().findElementByName(ITHtml.Login.TXT_N_USER_NAME);
+		WebElement elePass=Browser.Instance().findElementByName(ITHtml.Login.TXT_N_PASSWORD);
+		WebElement eleSubmit=Browser.Instance().findElementById(ITHtml.Login.BTN_I_SUBMIT);
 		eleName.sendKeys(user.record.username);
 		elePass.sendKeys(user.record.password);
 		eleSubmit.click();
@@ -69,7 +70,7 @@ public class WriteITWorkdailyTest {
 	
 	public void goToNewEdit()
 	{
-		WebElement eleNew=browser.findElementByCss(ITHtml.BTN_C_NEW_EDIT);  
+		WebElement eleNew=Browser.Instance().findElementByCss(ITHtml.BTN_C_NEW_EDIT);  
 		eleNew.click();
 	}
 	
@@ -80,54 +81,54 @@ public class WriteITWorkdailyTest {
 		
 		 
 		
-		WebElement eleWorkDate=browser.findElementByName(ITHtml.NewDaily.TXT_N_WORK_DATE);
-		WebElement eleHours=browser.findElementByName(ITHtml.NewDaily.TXT_N_HOURS);
-		WebElement eleWorkBlock=browser.findElementById(ITHtml.NewDaily.SEL_I_WORK_BLOCK); 
-		WebElement eleWorkType=browser.findElementById(ITHtml.NewDaily.SEL_I_WORK_TYPE); 
-		WebElement eleWorkContent=browser.findElementByName(ITHtml.NewDaily.TXT_N_WORK_CONTENT); 
-		WebElement eleWorkResult=browser.findElementByName(ITHtml.NewDaily.TXT_N_WORK_RESULT); 
-		WebElement eleWorkRole=browser.findElementById(ITHtml.NewDaily.SEL_I_WORK_ROLE); 
-		WebElement eleWorkCycle=browser.findElementById(ITHtml.NewDaily.SEL_I_WORK_CYCLE);
-		WebElement eleSubmit=browser.findElementByCss(ITHtml.NewDaily.BTN_C_NEW_SUBMIT); 
+		WebElement eleWorkDate=Browser.Instance().findElementByName(ITHtml.NewDaily.TXT_N_WORK_DATE);
+		WebElement eleHours=Browser.Instance().findElementByName(ITHtml.NewDaily.TXT_N_HOURS);
+		WebElement eleWorkBlock=Browser.Instance().findElementById(ITHtml.NewDaily.SEL_I_WORK_BLOCK); 
+		WebElement eleWorkType=Browser.Instance().findElementById(ITHtml.NewDaily.SEL_I_WORK_TYPE); 
+		WebElement eleWorkContent=Browser.Instance().findElementByName(ITHtml.NewDaily.TXT_N_WORK_CONTENT); 
+		WebElement eleWorkResult=Browser.Instance().findElementByName(ITHtml.NewDaily.TXT_N_WORK_RESULT); 
+		WebElement eleWorkRole=Browser.Instance().findElementById(ITHtml.NewDaily.SEL_I_WORK_ROLE); 
+		WebElement eleWorkCycle=Browser.Instance().findElementById(ITHtml.NewDaily.SEL_I_WORK_CYCLE);
+		WebElement eleSubmit=Browser.Instance().findElementByCss(ITHtml.NewDaily.BTN_C_NEW_SUBMIT); 
 		
 		eleWorkDate.clear();
-		eleWorkDate.sendKeys(record.L(i).workDate);  
+		eleWorkDate.sendKeys(WorkRecord.instance().L(i).workDate);  
 		eleHours.clear();
-		eleHours.sendKeys(record.L(i).workHours);  
+		eleHours.sendKeys(WorkRecord.instance().L(i).workHours);  
 		 
 		Select selWorkBlock=new Select(eleWorkBlock); 
-    	selWorkBlock.selectByVisibleText(record.L(i).workBlock); 
+    	selWorkBlock.selectByVisibleText(WorkRecord.instance().L(i).workBlock); 
   
-    	browser.displaySetNoneToBlok(ITHtml.NewDaily.SEL_I_WORK_SUBBLOCK);
-		WebElement eleWorkSubBlock=browser.findElementById(ITHtml.NewDaily.SEL_I_WORK_SUBBLOCK); 
+    	Browser.Instance().displaySetNoneToBlok(ITHtml.NewDaily.SEL_I_WORK_SUBBLOCK);
+		WebElement eleWorkSubBlock=Browser.Instance().findElementById(ITHtml.NewDaily.SEL_I_WORK_SUBBLOCK); 
 		Select selWorkSubBlock=new Select(eleWorkSubBlock);   
-		selWorkSubBlock.selectByVisibleText(record.L(i).workSubBlock); 
+		selWorkSubBlock.selectByVisibleText(WorkRecord.instance().L(i).workSubBlock); 
  
 		Select selWorkType=new Select(eleWorkType); 
-	    selWorkType.selectByVisibleText(record.L(i).workType); 
+	    selWorkType.selectByVisibleText(WorkRecord.instance().L(i).workType); 
 	     
-	    browser.displaySetNoneToBlok(ITHtml.NewDaily.SEL_I_WORK_SUBTYPE);
-		WebElement eleWorkSubType=browser.findElementById(ITHtml.NewDaily.SEL_I_WORK_SUBTYPE); 
+	    Browser.Instance().displaySetNoneToBlok(ITHtml.NewDaily.SEL_I_WORK_SUBTYPE);
+		WebElement eleWorkSubType=Browser.Instance().findElementById(ITHtml.NewDaily.SEL_I_WORK_SUBTYPE); 
 		Select selWorkSubType=new Select(eleWorkSubType); 
-	 	selWorkSubType.selectByVisibleText(record.L(i).workSubType); 
+	 	selWorkSubType.selectByVisibleText(WorkRecord.instance().L(i).workSubType); 
 		 
-		if(record.L(i).workType.equals(ITHtml.NewDaily.JUS_NEED_WORK_FROM)) {
-		 WebElement eleWorkFrom=browser.findElementById(ITHtml.NewDaily.SEL_I_WORK_FROM);   
+		if(WorkRecord.instance().L(i).workType.equals(ITHtml.NewDaily.JUS_NEED_WORK_FROM)) {
+		 WebElement eleWorkFrom=Browser.Instance().findElementById(ITHtml.NewDaily.SEL_I_WORK_FROM);   
 		 Select selWorkFrom=new Select(eleWorkFrom);  
-		 selWorkFrom.selectByVisibleText(record.L(i).workFrom); 
+		 selWorkFrom.selectByVisibleText(WorkRecord.instance().L(i).workFrom); 
 		}
 		
 		
 		eleWorkContent.clear();
-		eleWorkContent.sendKeys(record.L(i).workContent);  
+		eleWorkContent.sendKeys(WorkRecord.instance().L(i).workContent);  
 		eleWorkResult.clear();
-		eleWorkResult.sendKeys(record.L(i).workResult); 
+		eleWorkResult.sendKeys(WorkRecord.instance().L(i).workResult); 
 		 
 		Select selWorkRole=new Select(eleWorkRole);
-		selWorkRole.selectByVisibleText(record.L(i).workRole); 
+		selWorkRole.selectByVisibleText(WorkRecord.instance().L(i).workRole); 
 	   
 		Select selWorkCycle=new Select(eleWorkCycle);
-		selWorkCycle.selectByVisibleText(record.L(i).workCycle); 
+		selWorkCycle.selectByVisibleText(WorkRecord.instance().L(i).workCycle); 
 	  
     	eleSubmit.click(); 
 		

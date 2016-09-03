@@ -18,12 +18,12 @@ public class WorkRecordList extends ExcelReadListTemplate<ITWorkRecordEntity> {
 
 	 
 	//public List<WorkRecordEntity>  recordlist;
-	public List<JiraWorkRecordEntity> jiraList; 
+//	public List<JiraWorkRecordEntity> jiraList; 
 	public WorkDayList daylist;
 	public WorkRecordList()
 	{ 
 		 recordlist=new ArrayList<ITWorkRecordEntity>();
-		 jiraList=new ArrayList<JiraWorkRecordEntity>();
+	//	 jiraList=new ArrayList<JiraWorkRecordEntity>();
 		 daylist=new WorkDayList();
 		 GetData();
 		 GetJiraData();
@@ -51,6 +51,8 @@ public class WorkRecordList extends ExcelReadListTemplate<ITWorkRecordEntity> {
 			entity.workCycle =  sheet.getCell(9, i).getContents().trim();
 			entity.remark =  sheet.getCell(10, i).getContents().trim();
 			entity.workFrom=sheet.getCell(11, i).getContents().trim();
+			entity.jiraTaskItem=sheet.getCell(12, i).getContents().trim();
+			entity.jiraWorkDate=sheet.getCell(13, i).getContents().trim();
 			entity.print(); 
 			recordlist.add(entity); 
 		} 
@@ -61,27 +63,27 @@ public class WorkRecordList extends ExcelReadListTemplate<ITWorkRecordEntity> {
 	
 	public void  GetJiraData()
 	{
-		Sheet sheet=CWorkbook.Instance().getSheet(BrowserHtml.SHEET_NAME_JIRA_WORK_LIST);
-		Log.print("GetJiraData1");
-		for(int i=1;i<sheet.getRows();i++)
-		{
-			Log.print("GetJiraData2");
-			String tempDate=sheet.getCell(0,i).getContents().trim();
-			Log.print(tempDate);
-			if(tempDate!=null)
-			{
-				if(daylist.In(tempDate))
-				{
-					JiraWorkRecordEntity entity=new JiraWorkRecordEntity();
-					entity.workDate=sheet.getCell(1,i).getContents().trim();
-					entity.workHours=sheet.getCell(2,i).getContents().trim();
-					entity.taskItem=sheet.getCell(3,i).getContents().trim();
-					entity.workContent=sheet.getCell(4,i).getContents().trim();
-					entity.print();
-					jiraList.add(entity);
-				}
-			}
-		}
+//		Sheet sheet=CWorkbook.Instance().getSheet(BrowserHtml.SHEET_NAME_JIRA_WORK_LIST);
+//		Log.print("GetJiraData1");
+//		for(int i=1;i<sheet.getRows();i++)
+//		{
+//			Log.print("GetJiraData2");
+//			String tempDate=sheet.getCell(0,i).getContents().trim();
+//			Log.print(tempDate);
+//			if(tempDate!=null)
+//			{
+//				if(daylist.In(tempDate))
+//				{
+//					JiraWorkRecordEntity entity=new JiraWorkRecordEntity();
+//					entity.workDate=sheet.getCell(1,i).getContents().trim();
+//					entity.workHours=sheet.getCell(2,i).getContents().trim();
+//					entity.taskItem=sheet.getCell(3,i).getContents().trim();
+//					entity.workContent=sheet.getCell(4,i).getContents().trim();
+//					entity.print();
+//					jiraList.add(entity);
+//				}
+//			}
+//		}
 	}
 	
 	
@@ -90,7 +92,7 @@ public class WorkRecordList extends ExcelReadListTemplate<ITWorkRecordEntity> {
 		 return recordlist.get(i);
 	}
 	
-	public JiraWorkRecordEntity  J(int i) { 
-		 return jiraList.get(i);
-	}
+//	public JiraWorkRecordEntity  J(int i) { 
+//		 return jiraList.get(i);
+//	}
 }

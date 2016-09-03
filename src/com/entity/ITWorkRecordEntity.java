@@ -17,7 +17,9 @@ public class ITWorkRecordEntity  extends Entity {
 	public String  workRole;
 	public String  workCycle;
 	public String  remark;  
-   public String   workFrom;
+    public String   workFrom;
+    public String  jiraWorkDate; 
+	public String  jiraTaskItem; 
 	
 	  
 	public String toString()
@@ -34,6 +36,8 @@ public class ITWorkRecordEntity  extends Entity {
 		          +",  work_cycle:"+workCycle
 		          +",  remark:"+remark
 		          +",  work_from:"+workFrom
+		          +",  jiraWorkDate:"+remark
+		          +",  jiraTaskItem:"+workFrom
 		          +"\n"  ;
 	}
 }

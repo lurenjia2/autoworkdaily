@@ -15,24 +15,21 @@ import org.openqa.selenium.JavascriptExecutor;
 
 import com.browser.*;
 import  com.entity.*;
-import com.entity.Html.BrowserHtml;
-import com.entity.Html.ITHtml;
-import com.entity.Html.JiraHtml;
-import com.excel.read.LoginUser; 
-import com.excel.read.WorkRecordList;
+import com.entity.Html.*; 
+import com.excel.read.*; 
 import com.log.Log;
 
 
 public class WriteJiraWorkdailyTest {
-      BrowserCommon browser;
-      WorkRecordList record;
+     //BrowserCommon browser;
+   //   WorkRecordList record;
       LoginUser user;
       
       @BeforeTest
       public void setUp()
       {
-    	  browser=new BrowserCommon(BrowserHtml.URL_JIRA);
-    	  record=new WorkRecordList();
+    	  Browser.Instance().LoadPage(BrowserHtml.URL_JIRA); 
+    	//  record=new WorkRecordList();
     	  user=new LoginUser(JiraHtml.Login.JUS_JIRA_USER_TYPE);
       }
       
@@ -46,7 +43,7 @@ public class WriteJiraWorkdailyTest {
       public void JiraWorkLoadTest() throws InterruptedException
       {
     	  login(); 
-    	  for(int i=0;i<record.jiraList.size();i++)
+    	  for(int i=0;i<WorkRecord.instance().size();i++)
     	  {
     		  goToTaskItem(i);
     		  newWorkLoadSubmit(i); 
@@ -58,9 +55,9 @@ public class WriteJiraWorkdailyTest {
       
       public void login()
       {
-    	  WebElement eleName=browser.findElementByName(JiraHtml.Login.TXT_N_USER_NAME);
-    	  WebElement elePass=browser.findElementByName(JiraHtml.Login.TXT_N_PASSWORD);
-    	  WebElement eleSubmit=browser.findElementById(JiraHtml.Login.BTN_I_SUBMIT);
+    	  WebElement eleName=Browser.Instance().findElementByName(JiraHtml.Login.TXT_N_USER_NAME);
+    	  WebElement elePass=Browser.Instance().findElementByName(JiraHtml.Login.TXT_N_PASSWORD);
+    	  WebElement eleSubmit=Browser.Instance().findElementById(JiraHtml.Login.BTN_I_SUBMIT);
     	  eleName.sendKeys(user.record.username);
     	  elePass.sendKeys(user.record.password);
     	  eleSubmit.click(); 
@@ -69,34 +66,34 @@ public class WriteJiraWorkdailyTest {
       
       public void goToTaskItem(int i)
       {
-    	  String url=BrowserHtml.URL_JIRA_TO_TASK+record.J(i).taskItem;
-    	  browser.LoadPage(url); 
+    	  String url=BrowserHtml.URL_JIRA_TO_TASK+WorkRecord.instance().L(i).jiraTaskItem;
+    	  Browser.Instance().LoadPage(url); 
     	  
-    	  WebElement eleMore=browser.findElementById(JiraHtml.LINK_I_MORE_OPRATOR);
+    	  WebElement eleMore=Browser.Instance().findElementById(JiraHtml.LINK_I_MORE_OPRATOR);
     	  eleMore.click();
-    	  WebElement eleNew=browser.findElementById(JiraHtml.LINK_I_NEW_EDIT);
+    	  WebElement eleNew=Browser.Instance().findElementById(JiraHtml.LINK_I_NEW_EDIT);
     	  eleNew.click();
       }
       
       public void newWorkLoadSubmit(int i)
   	  {
-        WebElement eleWorkDate=browser.findElementById(JiraHtml.NewDaily.TXT_I_WORK_DATE);
-  		WebElement eleHours=browser.findElementById(JiraHtml.NewDaily.TXT_I_HOURS);
-  	//	WebElement eleWorkContent=browser.findElementByClass(JiraHtml.NewDaily.TXT_A_WORK_CONTENT);
-  		WebElement eleWorkContent=browser.findElementByXPath(JiraHtml.NewDaily.TXT_X_WORK_CONTENT);
-   	    WebElement eleSubmit=browser.findElementById(JiraHtml.NewDaily.BTN_I_NEW_SUBMIT); 
+        WebElement eleWorkDate=Browser.Instance().findElementById(JiraHtml.NewDaily.TXT_I_WORK_DATE);
+  		WebElement eleHours=Browser.Instance().findElementById(JiraHtml.NewDaily.TXT_I_HOURS);
+  	//	WebElement eleWorkContent=Browser.Instance().findElementByClass(JiraHtml.NewDaily.TXT_A_WORK_CONTENT);
+  		WebElement eleWorkContent=Browser.Instance().findElementByXPath(JiraHtml.NewDaily.TXT_X_WORK_CONTENT);
+   	    WebElement eleSubmit=Browser.Instance().findElementById(JiraHtml.NewDaily.BTN_I_NEW_SUBMIT); 
   		
   	    
   		eleHours.clear();
-  		eleHours.sendKeys(record.J(i).workHours);  
+  		eleHours.sendKeys(WorkRecord.instance().L(i).workHours);  
   		Log.print("newWorkLoadSubmit1");
   		eleWorkDate.clear();
   		Log.print("newWorkLoadSubmit11");
-  		eleWorkDate.sendKeys(record.J(i).workDate);  
+  		eleWorkDate.sendKeys(WorkRecord.instance().L(i).jiraWorkDate);  
   		Log.print("newWorkLoadSubmit2"); 
   		 eleWorkContent.clear();
   		Log.print("newWorkLoadSubmit21");
-  		eleWorkContent.sendKeys(record.J(i).workContent); 
+  		eleWorkContent.sendKeys(WorkRecord.instance().L(i).workContent+WorkRecord.instance().L(i).workResult); 
   		Log.print("newWorkLoadSubmit3");
   		eleSubmit.click();
   		Log.print("newWorkLoadSubmit4");

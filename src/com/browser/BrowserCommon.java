@@ -20,66 +20,72 @@ import com.log.Log;
 
 public   class BrowserCommon {
 
-	 FirefoxProfile profile;
-	 public WebDriver driver; 
+	    BrowserCommon browser;
+	    FirefoxProfile profile;
+	    WebDriver driver; 
 	 
-	public BrowserCommon(String Url)
+   public   BrowserCommon()
 	{
 		System.setProperty(BrowserHtml.Firefox.PRO_BIN_NAME, BrowserHtml.Firefox.PRO_BIN_VALUE);
 	    FirefoxProfile profile=new FirefoxProfile();
 	    driver=new FirefoxDriver(profile);
 	    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	  
-	    LoadPage(Url);
+	    
 	}
+   
+   
+   
 	
-	public void LoadPage(String Url)
+   
+    
+	public   void LoadPage(String Url)
 	{
-		Log.info(this.toString()+"     LoadPage:"+Url);
+		Log.info("     LoadPage:"+Url);
 		driver.navigate().to(Url);
 	}
 	
 	
-	public void quit()
+	public   void quit()
 	{
 		 driver.quit();
 	}
 	
 	 
 	
-	public WebElement findElementByName(String vName)
+	public   WebElement findElementByName(String vName)
 	{
-		Log.info(this.toString()+"     findElementByName:"+vName);
+		Log.info("     findElementByName:"+vName);
 		return driver.findElement(By.name(vName));
 	}
 	
-	public WebElement findElementById(String vId)
+	public   WebElement findElementById(String vId)
 	{
-		Log.info(this.toString()+"     findElementById:"+vId);
+		Log.info("     findElementById:"+vId);
 		return driver.findElement(By.id(vId));
 	}
 	
-	public WebElement findElementByCss(String vCss)
+	public   WebElement findElementByCss(String vCss)
 	{
-		Log.info(this.toString()+"     findElementByCss:"+vCss);
+		Log.info("     findElementByCss:"+vCss);
 		return driver.findElement(By.cssSelector(vCss));
 	}
 	
-	public WebElement findElementByClass(String vClass)
+	public    WebElement findElementByClass(String vClass)
 	{
-		Log.info(this.toString()+"     findElementByClass:"+vClass);
+		Log.info("     findElementByClass:"+vClass);
 		return driver.findElement(By.className(vClass));
 	}
 	
-	public WebElement findElementByXPath(String vXPath)
+	public   WebElement findElementByXPath(String vXPath)
 	{
-		Log.info(this.toString()+"     findElementByXPath:"+vXPath);
+		Log.info("     findElementByXPath:"+vXPath);
 		return driver.findElement(By.xpath(vXPath));
 	}
 	
-	public void displaySetNoneToBlok(String eleName)
+	public   void displaySetNoneToBlok(String eleName)
 	{
-		Log.info(this.toString()+"     displaySetNoneToBlok:"+eleName);
+		Log.info("     displaySetNoneToBlok:"+eleName);
 		String js="document.getElementById('"+eleName+"').style.display='block';";
 		((JavascriptExecutor)driver).executeScript(js);  
 	}
