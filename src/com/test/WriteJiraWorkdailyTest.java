@@ -30,7 +30,8 @@ public class WriteJiraWorkdailyTest {
       {
     	  Browser.Instance().LoadPage(BrowserHtml.URL_JIRA); 
     	//  record=new WorkRecordList();
-    	  user=new LoginUser(JiraHtml.Login.JUS_JIRA_USER_TYPE);
+    	//  user=new LoginUser(JiraHtml.Login.JUS_JIRA_USER_TYPE);
+    	  user=(LoginUser) LoginUserMap.Instance().get(JiraHtml.Login.JUS_JIRA_USER_TYPE);
       }
       
       @AfterTest

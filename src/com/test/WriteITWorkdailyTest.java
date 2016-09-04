@@ -17,7 +17,9 @@ import com.browser.*;
 import  com.entity.*;
 import com.entity.Html.BrowserHtml;
 import com.entity.Html.ITHtml;
+import com.entity.Html.JiraHtml;
 import com.excel.read.LoginUser;
+import com.excel.read.LoginUserMap;
 import com.excel.read.WorkRecord;
 import com.excel.read.WorkRecordList;
 
@@ -33,7 +35,9 @@ public class WriteITWorkdailyTest {
 	{
 		Browser.Instance().LoadPage(BrowserHtml.URL_IT_WORK_LOAD); 
 	  //  record=new WorkRecordList(); 
-        user=new LoginUser(ITHtml.Login.JUS_IT_USER_TYPE);   
+     //   user=new LoginUser(ITHtml.Login.JUS_IT_USER_TYPE);   
+		user=(LoginUser) LoginUserMap.Instance().get(ITHtml.Login.JUS_IT_USER_TYPE);
+		   
 	}
 
 	@AfterTest
